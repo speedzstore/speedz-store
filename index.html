@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SPEEEDZ STORE</title>
     <style>
-        /* Warna tema cyan seperti KIOSGAMER dengan efek gelombang air */
+        /* Background putih dengan pattern gelombang cyan seperti KIOSGAMER */
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #00BFFF 0%, #00CED1 25%, #00D4E0 50%, #00E5FF 75%, #87CEEB 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            color: #ffffff;
+            background: linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 50%, #F0F8FF 100%);
+            background-attachment: fixed;
+            color: #333333;
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             text-align: center;
             -webkit-font-smoothing: antialiased;
@@ -22,44 +21,41 @@
             overflow-x: hidden;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         body::before {
             content: '';
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 200%;
-            height: 140px;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,30 Q200,-10 400,30 T800,30 T1200,30 L1200,120 L0,120 Z" fill="%2300D4FF" opacity="0.6"></path></svg>') repeat-x;
-            background-size: 50% 100%;
-            animation: wave 10s linear infinite;
+            top: -50px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%2300D4FF;stop-opacity:0.6" /><stop offset="50%25" style="stop-color:%2300BCD4;stop-opacity:0.5" /><stop offset="100%25" style="stop-color:%2300ACC1;stop-opacity:0.3" /></linearGradient></defs><path d="M0,0 Q50,50 100,30 T200,0 L200,80 Q150,120 100,100 T0,80 Z" fill="url(%23grad)"/><path d="M0,40 Q50,80 100,60 T200,40 L200,120 Q150,150 100,130 T0,120 Z" fill="%2300D4FF" opacity="0.3"/><path d="M0,100 Q50,140 100,120 T200,100 L200,200 L0,200 Z" fill="%2300E5FF" opacity="0.2"/></svg>') no-repeat;
+            background-size: contain;
             z-index: 0;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(-10px); }
         }
 
         body::after {
             content: '';
             position: fixed;
-            bottom: 0;
+            bottom: -100px;
             left: 0;
-            width: 200%;
-            height: 110px;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,50 Q300,10 600,50 T1200,50 L1200,120 L0,120 Z" fill="%2300E5FF" opacity="0.7"></path></svg>') repeat-x;
-            background-size: 60% 100%;
-            animation: wave 12s linear infinite reverse;
-            z-index: 1;
+            width: 100%;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="wave" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%2300D4FF;stop-opacity:0.15" /><stop offset="100%25" style="stop-color:%2300BCD4;stop-opacity:0.05" /></linearGradient></defs><path d="M0,100 Q200,50 400,100 T800,100 T1200,100 L1200,200 L0,200 Z" fill="url(%23wave)" stroke="%2300D4FF" stroke-width="2" opacity="0.4"/><path d="M0,130 Q200,80 400,130 T800,130 T1200,130 L1200,200 L0,200 Z" fill="none" stroke="%2300E5FF" stroke-width="1.5" opacity="0.3"/></svg>') repeat-x;
+            background-size: 50% 100%;
+            animation: wave 15s linear infinite;
+            z-index: 0;
+            pointer-events: none;
         }
 
         @keyframes wave {
             0% { background-position: 0 0; }
-            100% { background-position: 50% 0; }
-        }
-            100% { background-position: 50% 0; }
-        }
             100% { background-position: 50% 0; }
         }
 
@@ -70,7 +66,7 @@
             box-sizing: border-box;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             position: relative;
             z-index: 10;
