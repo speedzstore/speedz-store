@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SPEEEDZ STORE</title>
     <style>
-        /* Background putih dengan pattern gelombang cyan seperti KIOSGAMER */
+        /* Tema Luar Angkasa dengan Bintang, Planet, Bulan, Matahari, dan Bumi */
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 50%, #F0F8FF 100%);
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 50%, #16213e 100%);
             background-attachment: fixed;
-            color: #333333;
+            color: #ffffff;
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             text-align: center;
             -webkit-font-smoothing: antialiased;
@@ -21,42 +21,150 @@
             overflow-x: hidden;
         }
 
+        /* Bintang-bintang di latar belakang */
         body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 400px;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="topWave" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%2300D4FF;stop-opacity:0.5" /><stop offset="50%25" style="stop-color:%2300CED1;stop-opacity:0.4" /><stop offset="100%25" style="stop-color:%2300BCD4;stop-opacity:0.3" /></linearGradient></defs><path d="M0,50 Q200,0 400,50 T800,50 T1200,50 L1200,150 Q150,200 0,150 Z" fill="url(%23topWave)"/><path d="M0,100 Q250,40 500,100 T1000,100 T1400,100 L1400,200 L0,200 Z" fill="%2300E5FF" opacity="0.3"/></svg>') repeat-x;
-            background-size: auto 100%;
-            z-index: 0;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 10% 20%, white, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 20% 30%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50% 50%, white, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 80% 10%, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90% 60%, white, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 30% 80%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 15% 50%, white, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 70% 75%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40% 10%, white, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 60% 30%, #fff, rgba(0,0,0,0));
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            z-index: 1;
             pointer-events: none;
-            animation: float 8s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-20px) translateX(-10px); }
-        }
-
-        body::after {
-            content: '';
+        /* Matahari (kanan atas) */
+        #sun {
             position: fixed;
-            bottom: -100px;
-            left: 0;
-            width: 100%;
-            height: 300px;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><linearGradient id="wave" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%2300D4FF;stop-opacity:0.15" /><stop offset="100%25" style="stop-color:%2300BCD4;stop-opacity:0.05" /></linearGradient></defs><path d="M0,100 Q200,50 400,100 T800,100 T1200,100 L1200,200 L0,200 Z" fill="url(%23wave)" stroke="%2300D4FF" stroke-width="2" opacity="0.4"/><path d="M0,130 Q200,80 400,130 T800,130 T1200,130 L1200,200 L0,200 Z" fill="none" stroke="%2300E5FF" stroke-width="1.5" opacity="0.3"/></svg>') repeat-x;
-            background-size: 50% 100%;
-            animation: wave 15s linear infinite;
-            z-index: 0;
-            pointer-events: none;
+            top: 60px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle at 30% 30%, #FFD700, #FFA500);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 40px rgba(255, 165, 0, 0.6);
+            animation: sunGlow 4s ease-in-out infinite;
         }
 
-        @keyframes wave {
-            0% { background-position: 0 0; }
-            100% { background-position: 50% 0; }
+        @keyframes sunGlow {
+            0%, 100% { box-shadow: 0 0 40px rgba(255, 165, 0, 0.6); }
+            50% { box-shadow: 0 0 60px rgba(255, 165, 0, 0.9); }
+        }
+
+        /* Bulan (kiri atas) */
+        #moon {
+            position: fixed;
+            top: 100px;
+            left: 50px;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 35% 35%, #f0f0f0, #c0c0c0);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(200, 200, 200, 0.4), inset -15px -15px 20px rgba(0, 0, 0, 0.4);
+            animation: moonOrbit 20s linear infinite;
+        }
+
+        @keyframes moonOrbit {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Bumi (kanan bawah) */
+        #earth {
+            position: fixed;
+            bottom: 80px;
+            right: 60px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #4DA6FF, #0066CC);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 30px rgba(77, 166, 255, 0.5);
+            animation: earthRotate 30s linear infinite;
+        }
+
+        @keyframes earthRotate {
+            0% { transform: rotateZ(0deg); }
+            100% { transform: rotateZ(360deg); }
+        }
+
+        /* Planet 1 (Jupiter-like) */
+        #planet1 {
+            position: fixed;
+            top: 200px;
+            left: 8%;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle at 40% 40%, #D4A574, #8B5A3C);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.4);
+            animation: floatPlanet1 12s ease-in-out infinite;
+        }
+
+        @keyframes floatPlanet1 {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(15px); }
+            50% { transform: translateY(-10px) translateX(0px); }
+            75% { transform: translateY(-25px) translateX(-10px); }
+        }
+
+        /* Planet 2 (Saturn-like) */
+        #planet2 {
+            position: fixed;
+            bottom: 200px;
+            left: 10%;
+            width: 55px;
+            height: 55px;
+            background: radial-gradient(circle at 35% 35%, #FFE4B5, #CD853F);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 25px rgba(255, 228, 181, 0.5);
+            animation: floatPlanet2 16s ease-in-out infinite;
+        }
+
+        @keyframes floatPlanet2 {
+            0%, 100% { transform: translateY(0px); }
+            25% { transform: translateY(-15px); }
+            50% { transform: translateY(-30px); }
+            75% { transform: translateY(-15px); }
+        }
+
+        /* Planet 3 (Neptune-like) */
+        #planet3 {
+            position: fixed;
+            top: 300px;
+            right: 5%;
+            width: 45px;
+            height: 45px;
+            background: radial-gradient(circle at 40% 40%, #4169E1, #000080);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(65, 105, 225, 0.4);
+            animation: floatPlanet3 14s ease-in-out infinite;
+        }
+
+        @keyframes floatPlanet3 {
+            0%, 100% { transform: translateX(0px); }
+            25% { transform: translateX(-20px) translateY(10px); }
+            50% { transform: translateX(-10px) translateY(0px); }
+            75% { transform: translateX(-25px) translateY(-10px); }
         }
 
         .container {
@@ -64,16 +172,18 @@
             margin: 32px auto;
             padding: 24px;
             box-sizing: border-box;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(20, 20, 40, 0.85);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             position: relative;
             z-index: 10;
+            border: 1px solid rgba(100, 200, 255, 0.2);
+        }
         }
 
         h1 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -81,6 +191,7 @@
             font-size: clamp(1.5rem, 4vw, 3rem);
             font-weight: 700;
             letter-spacing: -0.5px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
         /* Efek teks berjalan: wrapper + inner span untuk animasi yang andal */
@@ -94,7 +205,7 @@
             white-space: nowrap;
             animation: berjalan 20s linear infinite;
             font-size: clamp(1rem, 3.5vw, 1.25rem);
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #4facfe);
+            background: linear-gradient(90deg, #00D4FF, #00F2FE, #64E5FF, #00D4FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -160,8 +271,8 @@
         .btn-menu {
             display: inline-block;
             padding: 14px 28px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
+            color: #0a0e27;
             text-decoration: none;
             border-radius: 50px;
             font-size: 14px;
@@ -169,7 +280,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -213,7 +324,7 @@
         }
 
         .modal-content {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(20, 20, 40, 0.98) 0%, rgba(20, 20, 40, 0.95) 100%);
             position: fixed;
             top: 50%;
             left: 50%;
@@ -224,14 +335,15 @@
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.3);
             backdrop-filter: blur(10px);
+            color: #ffffff;
         }
 
         .modal-content h3 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -241,7 +353,7 @@
         }
 
         .close-modal {
-            color: #667eea;
+            color: #00D4FF;
             float: right;
             font-size: 28px;
             font-weight: bold;
@@ -261,17 +373,17 @@
         .modal-list li {
             padding: 14px 16px;
             margin: 10px 0;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
             border-radius: 12px;
-            color: #ffffff;
+            color: #0a0e27;
             font-weight: 600;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
         }
 
         .modal-list li:hover {
             transform: translateX(8px);
-            box-shadow: 0 12px 28px rgba(245, 87, 108, 0.35);
+            box-shadow: 0 12px 28px rgba(0, 212, 255, 0.5);
         }
 
         .payment-buttons {
@@ -286,20 +398,20 @@
 
         .btn-payment {
             padding: 12px 24px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
+            color: #0a0e27;
             border: none;
             border-radius: 12px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 12px 28px rgba(79, 172, 254, 0.3);
+            box-shadow: 0 12px 28px rgba(0, 212, 255, 0.4);
             font-size: 14px;
         }
 
         .btn-payment:hover {
             transform: translateY(-3px);
-            box-shadow: 0 16px 35px rgba(79, 172, 254, 0.5);
+            box-shadow: 0 16px 35px rgba(0, 212, 255, 0.6);
         }
 
         .copy-notification {
@@ -316,7 +428,7 @@
         }
 
         .modal-content-qris {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 25%, #64E5FF 50%, #00D4FF 75%, #00CED1 100%);
             position: fixed;
             top: 50%;
             left: 50%;
@@ -327,9 +439,9 @@
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 60px rgba(0, 212, 255, 0.5);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.5);
             backdrop-filter: blur(10px);
             position: relative;
         }
@@ -341,7 +453,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
             border-radius: 20px;
             pointer-events: none;
         }
@@ -355,7 +467,7 @@
             margin-top: 0;
             font-size: 22px;
             font-weight: 700;
-            color: #ffffff;
+            color: #0a0e27;
         }
 
         @keyframes slideIn {
@@ -384,17 +496,50 @@
             h1 { margin: 0.3em 0; }
             .payment-buttons { grid-template-columns: 1fr 1fr; gap: 8px; }
             .btn-payment { padding: 10px 20px; font-size: 12px; }
+            #sun { width: 50px; height: 50px; top: 40px; right: 20px; }
+            #moon { width: 40px; height: 40px; top: 60px; left: 20px; }
+            #earth { width: 55px; height: 55px; bottom: 60px; right: 30px; }
+            #planet1 { width: 35px; height: 35px; top: 150px; left: 5%; }
+            #planet2 { width: 40px; height: 40px; bottom: 150px; left: 5%; }
+            #planet3 { width: 30px; height: 30px; top: 250px; right: 3%; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 12px; margin: 8px; }
+            h1 { font-size: 1.3rem; }
+            .teks-berjalan { font-size: 0.9rem; animation-duration: 10s; }
+            .btn-menu { padding: 10px 18px; font-size: 12px; }
+            .btn-whatsapp { padding: 10px 20px; font-size: 13px; }
+            .modal-content { padding: 15px; }
+            .modal-content-qris { padding: 15px; }
+            .modal-content h3 { font-size: 16px; }
+            .modal-content-qris h3 { font-size: 16px; }
+            .btn-payment { padding: 8px 16px; font-size: 11px; }
+            #sun { width: 40px; height: 40px; top: 30px; right: 15px; }
+            #moon { width: 35px; height: 35px; top: 50px; left: 15px; }
+            #earth { width: 45px; height: 45px; bottom: 50px; right: 20px; }
+            #planet1 { width: 28px; height: 28px; top: 130px; left: 3%; }
+            #planet2 { width: 32px; height: 32px; bottom: 130px; left: 3%; }
+            #planet3 { width: 25px; height: 25px; top: 220px; right: 2%; }
         }
     </style>
 </head>
 <body>
+    <!-- Elemen Luar Angkasa -->
+    <div id="sun"></div>
+    <div id="moon"></div>
+    <div id="earth"></div>
+    <div id="planet1"></div>
+    <div id="planet2"></div>
+    <div id="planet3"></div>
+    
     <div class="container">
         <h1>Selamat Datang!</h1>
         <div class="marquee" role="region" aria-label="Teks berjalan">
             <span class="teks-berjalan">Hi i'm speedz store</span>
         </div>
         <h2 style="margin-top: 20px; margin-bottom: 10px; background: linear-gradient(135deg, #00D4FF 0%, #00CED1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 700;">Kang Jimel FF Level Gacor</h2>
-        <h2 style="margin-top: 10px; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 700;">INFORMASI SPEEDZ STORE</h2>
+        <h2 style="margin-top: 10px; margin-bottom: 20px; background: linear-gradient(135deg, #00F2FE 0%, #00D4FF 50%, #64E5FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 700;">INFORMASI SPEEDZ STORE</h2>
         
         <div class="btn-group">
             <button class="btn-menu" id="btnOwnPt">OWN/PT</button>
