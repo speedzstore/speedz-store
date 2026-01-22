@@ -6,13 +6,20 @@
     <title>SPEEEDZ STORE</title>
     <style>
         /* Tema Luar Angkasa dengan Bintang, Planet, Bulan, Matahari, dan Bumi */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
             background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 50%, #16213e 100%);
             background-attachment: fixed;
             color: #ffffff;
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
             text-align: center;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -168,17 +175,18 @@
         }
 
         .container {
-            max-width: 900px;
-            margin: 32px auto;
-            padding: 24px;
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 48px;
             box-sizing: border-box;
-            background: rgba(20, 20, 40, 0.85);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background: rgba(20, 20, 40, 0.75);
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 
+                        0 0 40px rgba(0, 212, 255, 0.15);
             backdrop-filter: blur(10px);
             position: relative;
             z-index: 10;
-            border: 1px solid rgba(100, 200, 255, 0.2);
+            border: 2px solid rgba(0, 212, 255, 0.25);
         }
         }
 
@@ -187,10 +195,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 0.5em 0;
-            font-size: clamp(1.5rem, 4vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            margin: 0 0 24px 0;
+            font-size: clamp(2rem, 5.5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
             text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
@@ -198,18 +207,20 @@
         .marquee {
             overflow: hidden;
             white-space: nowrap;
+            margin: 20px 0;
         }
 
         .teks-berjalan {
             display: inline-block;
             white-space: nowrap;
             animation: berjalan 20s linear infinite;
-            font-size: clamp(1rem, 3.5vw, 1.25rem);
+            font-size: clamp(1.1rem, 3.8vw, 1.3rem);
             background: linear-gradient(90deg, #00D4FF, #00F2FE, #64E5FF, #00D4FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         @keyframes berjalan {
@@ -220,18 +231,19 @@
         /* Styling tombol WhatsApp (accent warna) */
         .btn-whatsapp {
             display: inline-block;
-            margin-top: 20px;
-            padding: 14px 35px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: #ffffff;
+            margin-top: 32px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
+            color: #0a0e27;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
-            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -260,27 +272,28 @@
         .btn-group {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 18px;
             justify-content: center;
-            margin-top: 24px;
-            max-width: 600px;
+            margin-top: 40px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .btn-menu {
             display: inline-block;
-            padding: 14px 28px;
+            padding: 16px 32px;
             background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
             color: #0a0e27;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
-            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -329,15 +342,16 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            padding: 30px;
-            border-radius: 20px;
+            padding: 48px;
+            border-radius: 24px;
             max-width: 90vw;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.7),
+                        0 0 50px rgba(0, 212, 255, 0.2);
             text-align: center;
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            border: 2px solid rgba(0, 212, 255, 0.3);
             backdrop-filter: blur(10px);
             color: #ffffff;
         }
@@ -347,16 +361,18 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 22px;
-            font-weight: 700;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 800;
             margin-top: 0;
+            margin-bottom: 28px;
+            letter-spacing: -0.5px;
         }
 
         .close-modal {
             color: #00D4FF;
             float: right;
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 32px;
+            font-weight: 300;
             cursor: pointer;
             transition: color 0.2s ease;
         }
@@ -371,59 +387,63 @@
         }
 
         .modal-list li {
-            padding: 14px 16px;
-            margin: 10px 0;
+            padding: 18px 20px;
+            margin: 14px 0;
             background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
-            border-radius: 12px;
+            border-radius: 14px;
             color: #0a0e27;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.3px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.25);
         }
 
         .modal-list li:hover {
-            transform: translateX(8px);
-            box-shadow: 0 12px 28px rgba(0, 212, 255, 0.5);
+            transform: translateX(10px) translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
         }
 
         .payment-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 20px;
-            max-width: 400px;
+            gap: 14px;
+            margin-top: 28px;
+            max-width: 450px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .btn-payment {
-            padding: 12px 24px;
+            padding: 14px 26px;
             background: linear-gradient(135deg, #00D4FF 0%, #00F2FE 100%);
             color: #0a0e27;
             border: none;
             border-radius: 12px;
             font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.3px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 12px 28px rgba(0, 212, 255, 0.4);
-            font-size: 14px;
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.3);
         }
 
         .btn-payment:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 35px rgba(0, 212, 255, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 212, 255, 0.5);
         }
 
         .copy-notification {
             display: none;
-            margin-top: 15px;
-            padding: 12px 16px;
+            margin-top: 20px;
+            padding: 16px 20px;
             background: linear-gradient(135deg, #00c896 0%, #00d4ab 100%);
             color: #ffffff;
             border-radius: 12px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
-            box-shadow: 0 8px 20px rgba(0, 200, 150, 0.3);
+            letter-spacing: 0.3px;
+            box-shadow: 0 10px 30px rgba(0, 200, 150, 0.4);
             animation: slideIn 0.3s ease;
         }
 
@@ -465,9 +485,11 @@
 
         .modal-content-qris h3 {
             margin-top: 0;
-            font-size: 22px;
-            font-weight: 700;
+            margin-bottom: 24px;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 800;
             color: #0a0e27;
+            letter-spacing: -0.5px;
         }
 
         @keyframes slideIn {
@@ -483,19 +505,20 @@
 
         /* Responsive tweaks */
         @media (max-width: 768px) {
-            .container { padding: 16px; margin: 16px; border-radius: 16px; }
-            .btn-whatsapp { padding: 12px 24px; font-size: 14px; }
-            .teks-berjalan { animation-duration: 12s; }
-            .btn-menu { padding: 12px 20px; font-size: 13px; }
-            .btn-group { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .modal-content { padding: 20px; }
-            .modal-content-qris { padding: 20px; }
-            .modal-content h3 { font-size: 18px; }
-            .modal-content-qris h3 { font-size: 18px; }
-            .modal-list li { padding: 12px 14px; margin: 8px 0; font-size: 14px; }
-            h1 { margin: 0.3em 0; }
-            .payment-buttons { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .btn-payment { padding: 10px 20px; font-size: 12px; }
+            .container { padding: 32px 20px; margin: 40px 16px; border-radius: 20px; }
+            h1 { font-size: 2rem; margin-bottom: 18px; }
+            .btn-whatsapp { padding: 14px 28px; font-size: 14px; margin-top: 28px; }
+            .teks-berjalan { animation-duration: 12s; font-size: 1rem; }
+            .btn-menu { padding: 14px 24px; font-size: 14px; }
+            .btn-group { gap: 14px; }
+            .modal-content { padding: 32px 24px; }
+            .modal-content-qris { padding: 32px 24px; }
+            .modal-content h3 { font-size: 1.5rem; margin-bottom: 20px; }
+            .modal-content-qris h3 { font-size: 1.5rem; }
+            .modal-list li { padding: 16px 18px; margin: 12px 0; font-size: 14px; }
+            h1 { margin: 0 0 18px 0; }
+            .payment-buttons { gap: 12px; }
+            .btn-payment { padding: 12px 20px; font-size: 14px; }
             #sun { width: 50px; height: 50px; top: 40px; right: 20px; }
             #moon { width: 40px; height: 40px; top: 60px; left: 20px; }
             #earth { width: 55px; height: 55px; bottom: 60px; right: 30px; }
@@ -505,16 +528,19 @@
         }
 
         @media (max-width: 480px) {
-            .container { padding: 12px; margin: 8px; }
-            h1 { font-size: 1.3rem; }
-            .teks-berjalan { font-size: 0.9rem; animation-duration: 10s; }
-            .btn-menu { padding: 10px 18px; font-size: 12px; }
-            .btn-whatsapp { padding: 10px 20px; font-size: 13px; }
-            .modal-content { padding: 15px; }
-            .modal-content-qris { padding: 15px; }
-            .modal-content h3 { font-size: 16px; }
-            .modal-content-qris h3 { font-size: 16px; }
-            .btn-payment { padding: 8px 16px; font-size: 11px; }
+            .container { padding: 24px 16px; margin: 30px 8px; }
+            h1 { font-size: 1.6rem; margin-bottom: 14px; }
+            .teks-berjalan { font-size: 0.95rem; animation-duration: 10s; }
+            .btn-menu { padding: 12px 20px; font-size: 13px; }
+            .btn-whatsapp { padding: 12px 24px; font-size: 13px; margin-top: 24px; }
+            .modal-content { padding: 24px 18px; }
+            .modal-content-qris { padding: 24px 18px; }
+            .modal-content h3 { font-size: 1.3rem; margin-bottom: 16px; }
+            .modal-content-qris h3 { font-size: 1.3rem; }
+            .btn-payment { padding: 10px 16px; font-size: 12px; }
+            .modal-list li { padding: 14px 16px; margin: 10px 0; font-size: 13px; }
+            .btn-group { gap: 10px; }
+            .payment-buttons { gap: 10px; }
             #sun { width: 40px; height: 40px; top: 30px; right: 15px; }
             #moon { width: 35px; height: 35px; top: 50px; left: 15px; }
             #earth { width: 45px; height: 45px; bottom: 50px; right: 20px; }
@@ -538,8 +564,8 @@
         <div class="marquee" role="region" aria-label="Teks berjalan">
             <span class="teks-berjalan">Hi i'm speedz store</span>
         </div>
-        <h2 style="margin-top: 20px; margin-bottom: 10px; background: linear-gradient(135deg, #00D4FF 0%, #00CED1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 700;">Kang Jimel FF Level Gacor</h2>
-        <h2 style="margin-top: 10px; margin-bottom: 20px; background: linear-gradient(135deg, #00F2FE 0%, #00D4FF 50%, #64E5FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 700;">INFORMASI SPEEDZ STORE</h2>
+        <h2 style="margin-top: 36px; margin-bottom: 12px; background: linear-gradient(135deg, #00D4FF 0%, #00CED1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(1.2rem, 3.2vw, 1.8rem); font-weight: 800; letter-spacing: -0.5px;">Kang Jimel FF Level Gacor</h2>
+        <h2 style="margin-top: 16px; margin-bottom: 32px; background: linear-gradient(135deg, #00F2FE 0%, #00D4FF 50%, #64E5FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: clamp(1.2rem, 3.2vw, 1.8rem); font-weight: 800; letter-spacing: -0.5px;">INFORMASI SPEEDZ STORE</h2>
         
         <div class="btn-group">
             <button class="btn-menu" id="btnOwnPt">OWN/PT</button>
