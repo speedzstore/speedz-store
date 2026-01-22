@@ -810,12 +810,13 @@
         <div class="feedback-content">
             <span class="feedback-close" id="closeFeedback">&times;</span>
             <h3>Beri Kami Feedback</h3>
-            <form class="feedback-form" id="feedbackForm" action="https://formspree.io/f/xyzyzpyq" method="POST">
+            <form class="feedback-form" id="feedbackForm">
                 <div class="form-group">
                     <label for="feedbackName">Nama Anda *</label>
                     <input type="text" id="feedbackName" name="name" placeholder="Masukkan nama anda" required>
                 </div>
-                <input type="hidden" name="email" value="oryzaakira@gmail.com">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://speedzstore.github.io/speedz-store/">
                 <div class="form-group">
                     <label for="feedbackMessage">Feedback / Saran / Perbaikan *</label>
                     <textarea id="feedbackMessage" name="message" placeholder="Apa yang perlu saya perbaiki?" required></textarea>
@@ -906,15 +907,17 @@
                 return;
             }
 
-            // Kirim feedback menggunakan Formspree
+            // Kirim feedback menggunakan FormSubmit.co
             try {
-                const formData = new FormData(feedbackForm);
-                const response = await fetch('https://formspree.io/f/xyzyzpyq', {
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('message', message);
+                formData.append('_captcha', 'false');
+                formData.append('_next', 'https://speedzstore.github.io/speedz-store/');
+
+                const response = await fetch('https://formspree.io/f/mgvwbyzn', {
                     method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    body: formData
                 });
 
                 if (response.ok) {
@@ -927,6 +930,9 @@
                 } else {
                     showFeedbackStatus('Gagal mengirim feedback. Coba lagi!', 'error');
                 }
+            } catch (error) {
+                showFeedbackStatus('Error: ' + error.message, 'error');
+            }
             } catch (error) {
                 showFeedbackStatus('Error: ' + error.message, 'error');
             }
