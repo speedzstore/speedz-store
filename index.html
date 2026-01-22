@@ -5,25 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SPEEEDZ STORE</title>
     <style>
-        /* Warna tema modern dan gradien */
+        /* Warna tema modern dengan efek air biru */
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            color: #ffffff; /* teks utama terang */
+            background: linear-gradient(180deg, #0a47a6 0%, #1a73e8 30%, #2196F3 60%, #03a9f4 100%);
+            color: #ffffff;
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             text-align: center;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 120px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,50 Q150,10 300,50 T600,50 T900,50 T1200,50 L1200,120 L0,120 Z" fill="%2300BCD4" opacity="0.3"></path><path d="M0,60 Q150,20 300,60 T600,60 T900,60 T1200,60 L1200,120 L0,120 Z" fill="%2300BCD4" opacity="0.5"></path><path d="M0,70 Q150,40 300,70 T600,70 T900,70 T1200,70 L1200,120 L0,120 Z" fill="%2300BCD4" opacity="0.7"></path></svg>') repeat-x;
+            background-size: 50% 100%;
+            animation: wave 12s linear infinite;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,80 Q200,30 400,80 T800,80 T1200,80 L1200,120 L0,120 Z" fill="%2300ACC1" opacity="0.4"></path><path d="M0,90 Q200,50 400,90 T800,90 T1200,90 L1200,120 L0,120 Z" fill="%2300ACC1" opacity="0.6"></path></svg>') repeat-x;
+            background-size: 40% 100%;
+            animation: wave 15s linear infinite reverse;
+            z-index: 1;
+        }
+
+        @keyframes wave {
+            0% { background-position: 0 0; }
+            100% { background-position: 50% 0; }
         }
 
         .container {
@@ -35,6 +60,8 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 10;
         }
 
         h1 {
